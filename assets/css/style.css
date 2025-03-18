@@ -1,0 +1,139 @@
+#wpcontent{
+  padding-left: 0px !important;
+}
+
+.wrap{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.header-block{
+  background-color: #DDE6FB;
+  padding-top: 100px;
+  /* padding-bottom: 150px; */
+  /* padding-left: 50px; */
+}
+
+.header-block h1{
+  font-size: 44px;
+  margin-left: 50px;
+}
+.header-block p{
+  font-size: 22px;
+  margin-left: 50px;
+  width: 35%;
+}
+
+.text-blue-500\/5 {
+  color: hsl(140.12deg 62.81% 29.6% / 5%);
+}
+
+.u-userColor{
+  background-color: #3751e1;
+}
+
+.dark {
+  --bg-color: #171823;
+  --text-color: #9DA1AE;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Заголовки h2*/
+h2 {
+  color: #ffffff; /* Белый цвет для текста в темной теме */
+}
+
+/* Заголовки */
+.dark h1,
+.dark h2 {
+  color: #ffffff; /* Белый цвет для текста в темной теме */
+}
+
+/* Кнопка переключения темы */
+#theme-toggle {
+  background-color: #e5e7eb; /* Светлый фон для кнопки */
+  color: #1f2937; /* Темный цвет для текста */
+}
+
+.dark #theme-toggle {
+  background-color: #4b5563; /* Темный фон для кнопки */
+  color: #ffffff; /* Белый цвет текста */
+}
+
+#theme-toggle:hover {
+  background-color: #d1d5db; /* Легкий серый фон при наведении */
+}
+
+.dark #theme-toggle:hover {
+  background-color: #6b7280; /* Темный фон при наведении */
+}
+
+/* Карточки с фоном */
+.bg-white {
+  background-color: #ffffff; /* Белый фон для карточек */
+  border-width: 1px solid #fbfbff;
+}
+
+.dark .bg-white {
+  background-color: #242533; /* Темный фон для карточек */
+  border-width: 1px solid #BEBEC2;
+}
+
+/* Заголовки внутри карточек */
+.bg-blue-600,
+.bg-blue-400 {
+  background-color: #2563eb; /* Синий фон для карточек */
+}
+
+.dark .bg-blue-600,
+.dark .bg-blue-400 {
+  background-color: #1d4ed8; /* Темный синий для темной темы */
+}
+
+/* Текст */
+.text-gray-700,
+.text-gray-800 {
+  color: #374151; /* Темный текст */
+}
+
+.dark .text-gray-700,
+.dark .text-gray-800 {
+  color: #e5e7eb; /* Светлый текст для темной темы */
+}
+
+.dark .text-gray-300 {
+  color: #d1d5db; /* Светло-серый текст для темной темы */
+}
+
+/* Ввод */
+input {
+  background-color: #ffffff; /* Светлый фон для input */
+  color: #1f2937; /* Темный текст */
+}
+
+.dark input {
+  background-color: #4b5563; /* Темный фон для input */
+  color: #ffffff; /* Светлый текст для темной темы */
+  border-color: #6b7280; /* Темная рамка */
+}
+
+
+/* Общие отступы */
+.p-6 {
+  padding: 1.5rem; /* Паддинг для содержимого */
+}
+
+.mb-4 {
+  margin-bottom: 1rem; /* Отступ снизу */
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem; /* Отступ снизу */
+}
+
+
+

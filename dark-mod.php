@@ -12,12 +12,12 @@ function ngrok_enqueue_tailwind_theme_assets($hook) {
     }
     
     // Подключаем Tailwind CSS 3 с поддержкой темной темы
-    wp_enqueue_style(
-        'tailwind-css',
-        'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
-        array(),
-        '2.2.19'
-    );
+    // wp_enqueue_style(
+    //     'tailwind-css',
+    //     'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
+    //     array(),
+    //     '2.2.19'
+    // );
     
     
     // Подключаем JavaScript для переключения темы
