@@ -58,3 +58,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
 console.log("dev test");
 
+
+// Устанавливаем время исчезновения (в миллисекундах)
+
+const disappearTime = 5000; // 5000 мс = 5 секунд
+
+// Функция для скрытия элемента с классом alert
+function hideAlert() {
+    const alertElement = document.querySelector('.alert');
+    if (alertElement) {
+        alertElement.style.transition = 'opacity 1s';
+        alertElement.style.opacity = 0;
+        setTimeout(() => {
+            alertElement.style.display = 'none';
+        }, 1000); // Время ожидания после начала анимации (1 секунда)
+    }
+}
+
+// Запускаем таймер для скрытия элемента
+setTimeout(hideAlert, disappearTime);

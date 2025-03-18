@@ -186,7 +186,7 @@ class Ngrok_URL_Manager {
             $this->update_wp_config($ngrok_url);
             
             // Show success message
-            echo '<div class="bg-green-100 dark:bg-green-800 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-200 px-4 py-3 rounded relative mb-4" role="alert"><p>Ngrok URL saved successfully!</p></div>';
+            echo '<div class="alert bg-green-100 dark:bg-green-800 border border-green-400 dark:border-green-600 text-green-700 dark:text-green-200 px-4 py-3 rounded relative mb-4" role="alert"><p>Ngrok URL saved successfully!</p></div>';
             
             // Update stored URL
             $this->ngrok_url = $ngrok_url;

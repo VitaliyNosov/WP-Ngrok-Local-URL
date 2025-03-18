@@ -6,12 +6,18 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-
+.alert{
+  margin: 20px;
+}
 .header-block{
   background-color: #DDE6FB;
   padding-top: 100px;
   /* padding-bottom: 150px; */
   /* padding-left: 50px; */
+}
+
+.logo-block{
+  margin-top: -8%;
 }
 
 .header-block h1{
