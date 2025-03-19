@@ -6,14 +6,18 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
 .alert{
   margin: 20px;
 }
+
 .header-block{
   background-color: #DDE6FB;
   padding-top: 100px;
-  /* padding-bottom: 150px; */
-  /* padding-left: 50px; */
+}
+
+.dark .header-block{
+  background-color: #242533;
 }
 
 .logo-block{
@@ -48,98 +52,99 @@ body {
   color: var(--text-color);
 }
 
-/* Заголовки h2*/
-h2 {
-  color: #ffffff; /* Белый цвет для текста в темной теме */
+.ngrok-local-url span{
+  font-size: 55px;
+  margin-left: 50px;
 }
 
-/* Заголовки */
+/* h2 headers */
+h2 {
+  color: #ffffff; /* White text for dark theme */
+}
+
+/* Headers */
 .dark h1,
 .dark h2 {
-  color: #ffffff; /* Белый цвет для текста в темной теме */
+  color: #ffffff; /* White text for dark theme */
 }
 
-/* Кнопка переключения темы */
+/* Theme toggle button */
 #theme-toggle {
-  background-color: #e5e7eb; /* Светлый фон для кнопки */
-  color: #1f2937; /* Темный цвет для текста */
+  background-color: #e5e7eb; /* Light background for the button */
+  color: #1f2937; /* Dark text color */
 }
 
 .dark #theme-toggle {
-  background-color: #4b5563; /* Темный фон для кнопки */
-  color: #ffffff; /* Белый цвет текста */
+  background-color: #4b5563; /* Dark background for the button */
+  color: #ffffff; /* White text */
 }
 
 #theme-toggle:hover {
-  background-color: #d1d5db; /* Легкий серый фон при наведении */
+  background-color: #d1d5db; /* Light gray background on hover */
 }
 
 .dark #theme-toggle:hover {
-  background-color: #6b7280; /* Темный фон при наведении */
+  background-color: #6b7280; /* Dark background on hover */
 }
 
-/* Карточки с фоном */
+/* Cards with background */
 .bg-white {
-  background-color: #ffffff; /* Белый фон для карточек */
+  background-color: #ffffff; /* White background for cards */
   border-width: 1px solid #fbfbff;
 }
 
 .dark .bg-white {
-  background-color: #242533; /* Темный фон для карточек */
+  background-color: #242533; /* Dark background for cards */
   border-width: 1px solid #BEBEC2;
 }
 
-/* Заголовки внутри карточек */
+/* Card headers */
 .bg-blue-600,
 .bg-blue-400 {
-  background-color: #2563eb; /* Синий фон для карточек */
+  background-color: #2563eb; /* Blue background for cards */
 }
 
 .dark .bg-blue-600,
 .dark .bg-blue-400 {
-  background-color: #1d4ed8; /* Темный синий для темной темы */
+  background-color: #163881; /* Dark blue for dark theme */
 }
 
-/* Текст */
+/* Text */
 .text-gray-700,
 .text-gray-800 {
-  color: #374151; /* Темный текст */
+  color: #374151; /* Dark text */
 }
 
 .dark .text-gray-700,
 .dark .text-gray-800 {
-  color: #e5e7eb; /* Светлый текст для темной темы */
+  color: #e5e7eb; /* Light text for dark theme */
 }
 
 .dark .text-gray-300 {
-  color: #d1d5db; /* Светло-серый текст для темной темы */
+  color: #d1d5db; /* Light gray text for dark theme */
 }
 
-/* Ввод */
+/* Input fields */
 input {
-  background-color: #ffffff; /* Светлый фон для input */
-  color: #1f2937; /* Темный текст */
+  background-color: #ffffff; /* Light background for input fields */
+  color: #1f2937; /* Dark text */
 }
 
 .dark input {
-  background-color: #4b5563; /* Темный фон для input */
-  color: #ffffff; /* Светлый текст для темной темы */
-  border-color: #6b7280; /* Темная рамка */
+  background-color: #4b5563; /* Dark background for input fields */
+  color: #ffffff; /* Light text for dark theme */
+  border-color: #6b7280; /* Dark border */
 }
 
-
-/* Общие отступы */
+/* General margins */
 .p-6 {
-  padding: 1.5rem; /* Паддинг для содержимого */
+  padding: 1.5rem; /* Padding for content */
 }
 
 .mb-4 {
-  margin-bottom: 1rem; /* Отступ снизу */
+  margin-bottom: 1rem; /* Bottom margin */
 }
 
 .mb-5 {
-  margin-bottom: 1.25rem; /* Отступ снизу */
+  margin-bottom: 1.25rem; /* Bottom margin */
 }
-
-
-

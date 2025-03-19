@@ -1,17 +1,41 @@
 <?php 
 /**
  * Plugin Name: Ngrok Local URL
- * Plugin URI: 
+ * Plugin URI: https://yourwebsite.com
  * Description: A plugin to handle local development with Ngrok tunnels
  * Version: 1.0.0
  * Author: Vitaliy Nosov
+ * Author URI: https://www.linkedin.com/in/vitaliy-nosov-wordpress-developer/
  * Text Domain: ngrok-local-url
+ * License: GPL2
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
+ * Tags: development, ngrok, local url, WordPress plugin
  */
+
 
 // Exit if accessed directly
 if (!defined('ABSPATH')) {
     exit;
 }
+
+function disable_freemius_notices() {
+    // Add a function to the 'current_screen' hook to run when the screen is initialized
+    add_action('current_screen', function() {
+        // Get the current screen object
+        $screen = get_current_screen();
+
+        // Check if we're on the 'ngrok-local-url' page
+        if ($screen && strpos($screen->base, 'ngrok-local-url') !== false) { 
+            // Remove all actions for admin notices (this disables all admin notices for this page)
+            remove_all_actions('admin_notices');
+            remove_all_actions('all_admin_notices');
+        }
+    }, 99); // The priority is set to 99, meaning it will run after most other actions
+}
+
+// Hook the function to the 'admin_init' action, which runs on the admin page initialization
+add_action('admin_init', 'disable_freemius_notices', 99);
+
 
 class Ngrok_URL_Manager {
 
@@ -124,12 +148,11 @@ class Ngrok_URL_Manager {
 
         wp_enqueue_style(
             'my-plugin-style',
-            plugin_dir_url( __FILE__ ) . 'assets/css/style.css', // Путь к вашему локальному файлу стилей
-            array('tailwind-css'), // Указываем, что ваш стиль зависит от Tailwind
-            '1.0.0' // Версия вашего стиля
+            plugin_dir_url( __FILE__ ) . 'assets/css/style.css', 
+            array('tailwind-css'), 
+            '1.0.0' 
         );
         
-   
         // Admin page inline styles
         wp_add_inline_style('tailwind-css', '
             .ngrok-container { 
@@ -142,19 +165,10 @@ class Ngrok_URL_Manager {
             }
         ');
 
-        // Подключаем PHP-файл с функционалом
+        // Enqueue PHP functions
         require_once plugin_dir_path(__FILE__) . '/dark-mod.php';
 
-        // Подключаем JS-файл
-        // wp_enqueue_script(
-        //     'my-plugin-admin-js',
-        //     plugin_dir_url(__FILE__) . 'assets/js/tailwindcss.js',
-        //     array('jquery'),
-        //     '1.0.0',
-        //     true
-        // );
-
-        // Подключаем JS-файл
+        // Enqueue JS functions
         wp_enqueue_script(
             'my-plugin-admin-js',
             plugin_dir_url(__FILE__) . 'assets/js/theme-switcher.js',
@@ -193,8 +207,8 @@ class Ngrok_URL_Manager {
         }
         
         ?>
-         <div class="header-block">
-            <h1 class="dark:text-white">Welcome</h1>
+         <div class="ngrok-local-url header-block dark">
+            <span class="dark:text-white">Welcome</span>
             <p>ngrok is your app’s front door—a globally distributed reverse proxy that secures, protects and accelerates your applications and network services, no matter where you run them.</p>
             <div class="logo-block">
                 <svg class="high-contrast:text-blue-100/50 !h-auto w-full object-cover text-blue-500/5" width="1174" height="269" viewBox="0 0 1174 269" fill="currentColor"><path d="M404.855 152.332C388.249 133.737 367.709 124.375 343.299 124.375C328.253 124.375 314.394 127.304 301.658 133.227C288.922 139.15 277.934 147.174 268.632 157.427C259.392 167.744 252.088 179.717 246.719 193.6C241.35 207.419 238.666 222.385 238.666 238.561C238.666 254.418 241.163 268.875 246.095 281.93C251.089 294.922 258.019 306.066 267.009 315.364C275.999 324.662 286.674 331.922 299.036 337.144C311.397 342.366 324.944 344.978 339.678 344.978C346.358 344.978 352.539 344.468 358.157 343.513C363.776 342.558 369.145 340.965 374.264 338.8C379.384 336.571 384.378 333.769 389.372 330.394C394.304 326.955 399.486 322.624 404.855 317.466V372.68H404.793V378.03H336.619L285.363 436.874V447H477.712V423.118V130.17H404.855V152.332ZM404.668 253.527C402.108 259.386 398.737 264.544 394.617 268.938C390.434 273.333 385.502 276.708 379.758 279.192C374.015 281.675 367.896 282.885 361.466 282.885C354.724 282.885 348.481 281.675 342.737 279.192C336.993 276.708 331.999 273.333 327.816 268.938C323.633 264.544 320.387 259.386 317.952 253.527C315.517 247.668 314.331 241.236 314.331 234.422C314.331 227.862 315.58 221.685 318.139 215.953C320.699 210.221 324.07 205.254 328.44 200.987C332.748 196.72 337.68 193.345 343.299 190.734C348.918 188.123 354.973 186.849 361.404 186.849C367.584 186.849 373.515 188.059 379.321 190.543C385.065 192.963 390.122 196.402 394.429 200.796C398.737 205.19 402.108 210.221 404.73 215.953C407.29 221.685 408.539 227.989 408.539 234.867C408.476 241.427 407.228 247.668 404.668 253.527Z"></path><path d="M201.585 155.772C197.714 151.123 193.344 147.111 188.661 143.544C184.479 140.424 180.046 137.686 175.239 135.457C172.929 134.374 170.494 133.482 167.935 132.654C164.251 131.444 160.256 130.617 156.135 129.916H104.193L69.8563 169.846V165.197V130.744H-3V341.412H69.8563V251.044V199.268H79.97H100.26H137.406H138.28L143.961 199.141V341.348H216.818V209.585C216.818 198.377 215.756 188.378 213.634 179.59C211.511 170.865 207.515 162.968 201.585 155.772Z"></path><path d="M691.971 130.17H637.968C637.968 130.17 618.677 130.17 612.497 130.17L580.907 166.471V130.17H507.988V340.838H581.032L581.094 199.841H605.067H634.098L691.971 133.1V130.17Z"></path><path d="M1085.66 227.48L1185.3 133.737V130.171H1089.29L1012.87 206.146V0H940.015V340.775H1012.87V254.992L1092.97 340.775H1191V336.763L1085.66 227.48Z"></path><path d="M883.073 154.179C871.961 144.181 858.788 136.411 843.617 130.807C828.447 125.203 812.027 122.401 794.297 122.401C776.317 122.401 759.711 125.267 744.602 130.998C729.432 136.73 716.384 144.627 705.334 154.561C694.346 164.56 685.73 176.342 679.55 189.906C673.369 203.471 670.31 218.055 670.31 233.657C670.31 250.916 673.369 266.582 679.55 280.656C685.73 294.731 694.221 306.831 705.146 316.957C716.009 327.082 728.932 334.915 743.978 340.392C759.024 345.869 775.381 348.608 793.111 348.608C811.091 348.608 827.76 345.869 843.243 340.392C858.663 334.915 871.898 327.21 882.886 317.148C893.874 307.149 902.552 295.24 908.857 281.421C915.163 267.601 918.347 252.381 918.347 235.632C918.347 218.946 915.225 203.662 909.107 189.843C902.864 176.087 894.186 164.178 883.073 154.179ZM837.562 253.909C835.002 259.768 831.631 264.926 827.51 269.321C823.327 273.715 818.395 277.09 812.652 279.574C806.846 282.058 800.79 283.268 794.36 283.268C787.929 283.268 781.811 282.058 776.005 279.574C770.261 277.09 765.267 273.715 761.147 269.321C756.964 264.926 753.655 259.768 751.095 253.909C748.536 248.05 747.287 241.554 747.287 234.422C747.287 227.862 748.536 221.685 751.095 215.953C753.655 210.222 756.964 205.191 761.147 200.796C765.329 196.402 770.261 192.963 776.005 190.543C781.811 188.059 787.867 186.849 794.36 186.849C800.79 186.849 806.908 188.059 812.652 190.543C818.395 192.963 823.39 196.402 827.51 200.796C831.693 205.191 835.002 210.349 837.562 216.208C840.121 222.067 841.37 228.308 841.37 234.867C841.37 241.682 840.121 248.05 837.562 253.909Z"></path></svg>
@@ -207,7 +221,7 @@ class Ngrok_URL_Manager {
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                     </svg>
-                    Светлая тема1 
+                    Dark Theme
                 </button>
             </div>
             
@@ -254,7 +268,6 @@ class Ngrok_URL_Manager {
     // script theme
 
 
-    
     /**
      * Check if Ngrok constants are present in wp-config.php
      */

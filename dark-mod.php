@@ -1,26 +1,18 @@
 <?php
 /**
- * Добавьте этот код в основной файл вашего плагина
+ * Add this code to the main file of your plugin
  */
 
 /**
- * Подключение ресурсов Tailwind CSS с поддержкой темной темы
+ * Enqueue Tailwind CSS assets with dark mode support
  */
+
 function ngrok_enqueue_tailwind_theme_assets($hook) {
     if ('toplevel_page_ngrok-local-url' !== $hook) {
         return;
     }
-    
-    // Подключаем Tailwind CSS 3 с поддержкой темной темы
-    // wp_enqueue_style(
-    //     'tailwind-css',
-    //     'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css',
-    //     array(),
-    //     '2.2.19'
-    // );
-    
-    
-    // Подключаем JavaScript для переключения темы
+        
+    // Enqueue JavaScript for theme switching
     wp_enqueue_script(
         'theme-switcher',
         plugins_url('assets/js/theme-switcher.js', __FILE__),
@@ -32,12 +24,12 @@ function ngrok_enqueue_tailwind_theme_assets($hook) {
 add_action('admin_enqueue_scripts', 'ngrok_enqueue_tailwind_theme_assets');
 
 /**
- * Добавляем атрибут к тегу <html> для поддержки темной темы Tailwind
+ * Add an attribute to the <html> tag for dark mode support in Tailwind
  */
 function ngrok_add_dark_mode_support() {
     $screen = get_current_screen();
     if ($screen && $screen->id === 'toplevel_page_ngrok-local-url') {
-        // Добавляем script в head для предотвращения мигания при загрузке
+        // Add a script in the head to prevent flickering on load
         echo '<script>
             if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
                 document.documentElement.classList.add("dark");
@@ -51,4 +43,3 @@ add_action('admin_head', 'ngrok_add_dark_mode_support');
 
 
 echo '<script>console.log("php test");</script>';
-
