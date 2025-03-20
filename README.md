@@ -1,40 +1,76 @@
-# SuperWP Plugin
+# Ngrok Local URL
 
-SuperWP is a powerful WordPress plugin designed to enhance your website with a suite of cutting-edge features. From automated content creation to seamless social media integration, SuperWP is the only plugin you'll ever need to take your WordPress site to the next level.
+![WordPress Plugin](https://img.shields.io/wordpress/plugin/v/ngrok-local-url)
+![PHP Version](https://img.shields.io/badge/PHP-%3E=7.2-blue)
+![License](https://img.shields.io/badge/License-GPLv2%2B-green)
 
-## Features
+## Description
 
-- **Content Automation**: Automatically generate SEO-friendly posts and pages using AI-powered algorithms.
-- **Social Media Integration**: Effortlessly connect your site to social media platforms and auto-share posts.
-- **Advanced SEO Tools**: Built-in tools to optimize your site’s SEO, including meta tags, keyword suggestions, and more.
-- **Page Speed Optimizer**: Automatically optimize images, scripts, and stylesheets for faster page loads.
-- **Custom Widgets**: A set of stylish and functional widgets to enhance your site’s user experience.
+**Ngrok Local URL** simplifies local WordPress development by automatically handling URL configurations for Ngrok tunnels.
+
+### Features
+
+- Easy management of Ngrok tunnel URLs from the WordPress admin
+- Automatic update of WordPress configuration
+- Quick access via the admin toolbar
+- Dark/light theme for settings page
+- Full support for Ngrok Free and Ngrok Pro
+
+## How It Works
+
+1. Start an Ngrok tunnel on your local machine
+2. Copy the tunnel URL (e.g., `https://your-subdomain.ngrok-free.app`)
+3. Paste the URL in the plugin settings
+4. The plugin automatically configures WordPress to work correctly with this URL
+
+### For Developers
+
+The plugin modifies the `wp-config.php` file, adding `WP_HOME` and `WP_SITEURL` constants to ensure WordPress handles requests correctly via the Ngrok tunnel.
 
 ## Installation
 
-1. Download the plugin as a `.zip` file from the releases section or clone the repository.
-2. Upload the plugin to your WordPress website via **Plugins > Add New > Upload Plugin**.
-3. Once uploaded, click "Activate" to enable the plugin.
-4. You can now access the plugin's settings under **Settings > SuperWP**.
+1. Upload the plugin files to the `/wp-content/plugins/ngrok-local-url` directory, or install the plugin via the WordPress plugin screen.
+2. Activate the plugin through the 'Plugins' menu in WordPress.
+3. Use the 'Ngrok URL' menu item to configure your Ngrok tunnel URL.
 
-## Requirements
+## Frequently Asked Questions
 
-- WordPress 5.0 or higher
-- PHP 7.2 or higher
-- An active internet connection (for social media integrations and content generation features)
+### What is Ngrok?
 
-## Usage
+Ngrok is a service that creates secure tunnels to expose your local web server to the internet.
 
-Once activated, you can access the plugin’s features from the dashboard:
+### Do I need an Ngrok account to use this plugin?
 
-- **Content Automation**: Navigate to the "SuperWP" settings and enable the content generation feature. Choose the category and keywords, and let SuperWP automatically create posts for you.
-- **SEO Tools**: Under the plugin settings, you'll find a comprehensive SEO dashboard. Here, you can optimize existing posts, analyze keyword performance, and generate SEO recommendations.
-- **Widgets**: Add the custom widgets to your pages via the widget editor in **Appearance > Widgets**.
+Yes, you need to have an Ngrok account and have Ngrok set up on your local machine. This plugin only manages the WordPress-side configuration.
 
-## Development
+### Is it safe to use this plugin on a production site?
 
-To contribute or customize the plugin, follow these steps:
+The plugin is designed for development environments. It is not recommended for production use as it changes core WordPress URL settings.
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/superwp-plugin.git
+### Is the plugin compatible with WordPress Multisite?
+
+Yes, but additional configuration is required. Please refer to the documentation for details.
+
+## Screenshots
+
+1. Settings page for Ngrok URL configuration
+2. Dark theme settings interface
+3. Quick access via the admin toolbar
+
+## Changelog
+
+### 1.0.0
+- Initial release
+
+## Upgrade Notice
+
+### 1.0.0
+Initial version of Ngrok Local URL plugin.
+
+## License
+
+This plugin is licensed under the GPLv2 or later. See the [GPL-2.0 License](https://www.gnu.org/licenses/gpl-2.0.html) for details.
+
+## Privacy Policy
+
+The Ngrok Local URL plugin does not collect any personal data.
